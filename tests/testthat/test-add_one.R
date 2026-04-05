@@ -1,3 +1,5 @@
+source("./learning-quarto/cicd-testing.r")
+
 test_that("additive function is working fine,", {
   expect_equal(add_one(2), 3)
   expect_equal(add_one(2), 5)

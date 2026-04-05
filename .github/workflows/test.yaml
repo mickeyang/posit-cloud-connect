@@ -39,5 +39,4 @@ jobs:
 
       - name: Run my script
         run: |
-          Rscript -e 'source("./learning-quarto/cicd-testing.r")'
           Rscript -e 'testthat::test_dir("./tests/testthat/")'
