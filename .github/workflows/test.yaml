@@ -33,7 +33,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          options(repos = c(CRAN = "https://cloud.r-project.org"))
+          # options(repos = c(CRAN = "https://cloud.r-project.org"))
           install.packages(c("testthat"))
         shell: Rscript {0}
 
