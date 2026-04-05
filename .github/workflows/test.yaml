@@ -7,10 +7,8 @@ on:
 
 name: test.yaml
 
-permissions: read-all
-
 jobs:
-  run-script:
+  test-script:
     runs-on: ${{ matrix.config.os }}
 
     name: ${{ matrix.config.os }} (${{ matrix.config.r }})
@@ -40,4 +38,6 @@ jobs:
         shell: Rscript {0}
 
       - name: Run my script
-        run: Rscript -e 'testthat::test_dir("./tests/testthat/")'
+        run: |
+          Rscript -e 'source("./learning-quarto/cicd-testing.r")'
+          Rscript -e 'testthat::test_dir("./tests/testthat/")'
