@@ -5,7 +5,7 @@ on:
     branches: [main, master]
   pull_request:
 
-name: R-CMD-check.yaml
+name: test.yaml
 
 permissions: read-all
 
@@ -36,8 +36,8 @@ jobs:
       - name: Install dependencies
         run: |
           options(repos = c(CRAN = "https://cloud.r-project.org"))
-          install.packages(c("dplyr"))
+          install.packages(c("testthat"))
         shell: Rscript {0}
 
       - name: Run my script
-        run: Rscript learning-quarto/cicd-testing.r
+        run: Rscript -e 'testthat::test_dir("./tests/testthat/")'
