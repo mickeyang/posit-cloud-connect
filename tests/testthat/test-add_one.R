@@ -1,4 +1,4 @@
-source("./learning-quarto/cicd-testing.r")
+source("../../learning-quarto/add-one-function.R")
 
 test_that("additive function is working fine,", {
   expect_equal(add_one(2), 3)
