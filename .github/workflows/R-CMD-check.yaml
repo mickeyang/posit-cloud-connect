@@ -30,6 +30,12 @@ jobs:
       R_KEEP_PKG_SOURCE: yes
 
     steps:
+      - name: Install dependencies
+        run: |
+          install.packages(c("sessioninfo", "rcmdcheck"), repos = "https://cloud.r-project.org")
+          remotes::install_deps(dependencies = TRUE)
+        shell: Rscript {0}
+
       - uses: actions/checkout@v4
 
       - uses: r-lib/actions/setup-pandoc@v2
